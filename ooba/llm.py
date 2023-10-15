@@ -4,10 +4,10 @@ import asyncio
 import json
 import websockets
 import subprocess
-from .utils.get_open_ports import get_open_ports
+#from .utils.get_open_ports import get_open_ports
 from .utils.check_port import check_port
 from .utils.detect_hardware import detect_hardware
-from .uninstall import uninstall
+#from .uninstall import uninstall #unused...
 import random
 import sys
 import threading

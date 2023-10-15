@@ -33,6 +33,8 @@ def detect_gpu():
     - "C" for Apple M Series GPU
     - "D" for Intel Arc GPU
     - "N" if no supported GPU is detected
+    -
+    - "M" Experimental Windows GPU support
     """
 
     os_type = platform.system().lower()
@@ -64,6 +66,16 @@ def detect_gpu():
             pass  # system_profiler command not found
 
     # there isn't a reliable method to detect Intel Arc GPUs yet. - ChatGPT
+    
+    #option M directML support
+    if os_type == 'windows':
+        try:
+            gpu_info = subprocess.check_output("wmic path win32_videocontroller get name", shell=True).decode("utf-8")
+            if "AMD" in gpu_info:
+                #print(f"{gpu_info}")
+                return "M"
+        except Exception as e:
+            pass
 
     # GPU not properly detected. Output CPU option
 
