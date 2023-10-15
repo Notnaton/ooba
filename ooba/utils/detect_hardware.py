@@ -67,7 +67,7 @@ def detect_gpu():
 
     # there isn't a reliable method to detect Intel Arc GPUs yet. - ChatGPT
     
-    #option M directML support
+    #option M directML support. Currently just a hack to make it return, need supported models...
     if os_type == 'windows':
         try:
             gpu_info = subprocess.check_output("wmic path win32_videocontroller get name", shell=True).decode("utf-8")
