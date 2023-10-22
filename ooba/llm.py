@@ -42,9 +42,9 @@ class llm:
             install_oobabooga(gpu_choice=self.gpu_choice)
 
             # Start oobabooga server
-            model_dir = "/".join(path.split("/")[:-1])
-            model_name = path.split("/")[-1]
-
+            model_dir = os.path.dirname(path)
+            model_name = os.path.basename(path)
+            
             # Find an open port
             while True:
                 self.port = random.randint(2000, 10000)
